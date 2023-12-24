@@ -11,7 +11,7 @@ variables:
         - [regex, '\s&(?=\s)', " "]
         - [regex, '(?<=\W|\s)+(feat.+|ft[\W\s]+|(f\.\s)).+', ""]
         - [regex, '[^\sa-z0-9]\s*', ""]
-        - [strip_nonascii, -]
+        - [strip_nonascii, "-"]
     title:
         type: title
         filters:
@@ -21,7 +21,7 @@ variables:
         - [regex, "'", " "]
         - [regex, '\.+|,+|/+|(\W+(?=$))|(^\W+)', ""]
         - [regex, '\s&(?=\s)', " and"]
-        - [strip_nonascii, -]
+        - [strip_nonascii, "-"]
 
 config:
     url: "http://www.musixmatch.com/lyrics/{artist}/{title}"

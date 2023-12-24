@@ -7,7 +7,7 @@ variables:
         - strip_diacritics
         - lowercase
         - [regex, '[^\sa-z0-9]\s*', ""]
-        - [strip_nonascii, -]
+        - [strip_nonascii, "-"]
     title:
         type: title
         filters: artist
