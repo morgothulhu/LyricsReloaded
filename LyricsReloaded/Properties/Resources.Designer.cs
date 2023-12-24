@@ -19,7 +19,7 @@ namespace CubeIsland.LyricsReloaded.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -306,8 +306,7 @@ namespace CubeIsland.LyricsReloaded.Properties {
         ///- strip_html
         ///- strip_links
         ///- entity_decode
-        ///- clean_spaces
-        ///- utf8_enco [rest of string was truncated]&quot;;.
+        ///-  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string provider_oldielyrics_com {
             get {
@@ -365,7 +364,7 @@ namespace CubeIsland.LyricsReloaded.Properties {
         ///- clean_spaces
         ///- utf8_encode
         ///- [fix_broken_chars, &apos;Ã&apos;, ISO-8859-1]
-        ///- [replace, &apos;þ&apos;, &apos;ß&apos;].
+        ///- [replace [rest of string was truncated]&quot;;.
         /// </summary>
         public static string provider_songlyrics_com {
             get {
