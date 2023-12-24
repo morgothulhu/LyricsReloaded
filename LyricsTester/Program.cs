@@ -25,80 +25,85 @@ using System.Text;
 
 namespace LyricsTester
 {
-    class Program
+  class Program
+  {
+    static int Main(string[] args)
     {
-        static int Main(string[] args)
+      Console.Title = "LyricsReloaded!";
+      Console.OutputEncoding = Encoding.UTF8;
+      Console.InputEncoding = Encoding.UTF8;
+      Console.CancelKeyPress += (sender, eventArgs) => Console.WriteLine("Bye!");
+
+      Console.WriteLine("LyricsReloaded! - usage: LyricsTester.exe [provider: \"Dark Lyrics\"] [artist] [title] [album]");
+      Console.WriteLine(string.Empty);
+      Console.WriteLine("ex1: LyricsTester.exe \"Dark Lyrics\" \"Spellblast\" \"Wanted Dead Or Alive\" \"Of Gold And Guns\"");
+      Console.WriteLine("ex2: LyricsTester.exe \"Genius\" \"within temptation\" \"wireless\" \"bleed out\"");
+
+      String providerName = null;
+      String artist = null;
+      String title = null;
+      String album = null;
+
+      int result = 0;
+
+      int argc = args.Length;
+
+      if (argc > 0)
+      {
+        providerName = args[0];
+      }
+      if (argc > 1)
+      {
+        artist = args[1];
+      }
+      if (argc > 2)
+      {
+        title = args[2];
+      }
+      if (argc > 3)
+      {
+        album = args[3];
+      }
+
+      LyricsReloaded lyricsReloaded = new LyricsReloaded(".");
+      lyricsReloaded.loadConfigurations();
+
+      lyricsReloaded.checkForNewVersion(newAvailable =>
+      {
+        if (newAvailable)
         {
-            Console.Title = "LyricsReloaded!";
-            Console.OutputEncoding = Encoding.UTF8;
-            Console.InputEncoding = Encoding.UTF8;
-            Console.CancelKeyPress += (sender, eventArgs) => Console.WriteLine("Bye!");
+          Console.WriteLine();
+          Console.ForegroundColor = ConsoleColor.White;
+          Console.BackgroundColor = ConsoleColor.Red;
+          Console.Write("A new version is available!");
+          Console.ResetColor();
+          Console.WriteLine();
+        }
+      });
 
-            String providerName = null;
-            String artist = null;
-            String title = null;
-            String album = null;
-
-            int result = 0;
-
-            int argc = args.Length;
-
-            if (argc > 0)
-            {
-                providerName = args[0];
-            }
-            if (argc > 1)
-            {
-                artist = args[1];
-            }
-            if (argc > 2)
-            {
-                title = args[2];
-            }
-            if (argc > 3)
-            {
-                album = args[3];
-            }
-
-            LyricsReloaded lyricsReloaded = new LyricsReloaded(".");
-            lyricsReloaded.loadConfigurations();
-
-            lyricsReloaded.checkForNewVersion(newAvailable =>
-            {
-                if (newAvailable)
-                {
-                    Console.WriteLine();
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.Write("A new version is available!");
-                    Console.ResetColor();
-                    Console.WriteLine();
-                }
-            });
-
-            if (String.IsNullOrWhiteSpace(providerName))
-            {
-                Console.WriteLine("The providers:");
-                foreach (Provider p in lyricsReloaded.getProviderManager().getProviders())
-                {
-                    Console.WriteLine(" - {0}", p.getName());
-                }
-                Console.Write("Enter the provider: ");
-                providerName = Console.ReadLine();
-                if (providerName != null)
-                {
-                    providerName = providerName.Trim();
-                }
-            }
-            if (String.IsNullOrWhiteSpace(artist))
-            {
-                Console.Write("Enter the artist: ");
-                artist = Console.ReadLine();
-                if (artist != null)
-                {
-                    artist = artist.Trim();
-                }
-            }
+      if (String.IsNullOrWhiteSpace(providerName))
+      {
+        Console.WriteLine("The providers:");
+        foreach (Provider p in lyricsReloaded.getProviderManager().getProviders())
+        {
+          Console.WriteLine(" - {0}", p.getName());
+        }
+        Console.Write("Enter the provider: ");
+        providerName = Console.ReadLine();
+        if (providerName != null)
+        {
+          providerName = providerName.Trim();
+        }
+      }
+      if (String.IsNullOrWhiteSpace(artist))
+      {
+        Console.Write("Enter the artist: ");
+        artist = Console.ReadLine();
+        if (artist != null)
+        {
+          artist = artist.Trim();
+        }
+      }
       if (String.IsNullOrWhiteSpace(album))
       {
         Console.Write("Enter the album: ");
@@ -108,50 +113,50 @@ namespace LyricsTester
           album = album.Trim();
         }
       }
-            if (String.IsNullOrWhiteSpace(title))
-            {
-                Console.Write("Enter the title: ");
-                title = Console.ReadLine();
-                if (title != null)
-                {
-                    title = title.Trim();
-                }
-            }
-
-
-            Provider provider = lyricsReloaded.getProviderManager().getProvider(providerName);
-            if (provider == null)
-            {
-                lyricsReloaded.getLogger().error("Provider {0} not found!", providerName);
-                result = 1;
-            }
-            else
-            {
-                Console.Write("Provider {0}: ", providerName);
-                try
-                {
-                    String lyrics = provider.getLyrics(artist, title, album);
-                    if (String.IsNullOrWhiteSpace(lyrics))
-                    {
-                        Console.WriteLine("failed (not found)");
-                        lyricsReloaded.getLogger().error("Lyrics not found!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("success\n\n" + lyrics);
-                    }
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("failed (internal error)");
-                    Console.WriteLine(e.ToString());
-                }
-            }
-
-            Console.WriteLine("\nPress any key to exit...");
-            Console.ReadKey();
-
-            return result;
+      if (String.IsNullOrWhiteSpace(title))
+      {
+        Console.Write("Enter the title: ");
+        title = Console.ReadLine();
+        if (title != null)
+        {
+          title = title.Trim();
         }
+      }
+
+
+      Provider provider = lyricsReloaded.getProviderManager().getProvider(providerName);
+      if (provider == null)
+      {
+        lyricsReloaded.getLogger().error("Provider {0} not found!", providerName);
+        result = 1;
+      }
+      else
+      {
+        Console.Write("Provider {0}: ", providerName);
+        try
+        {
+          String lyrics = provider.getLyrics(artist, title, album);
+          if (String.IsNullOrWhiteSpace(lyrics))
+          {
+            Console.WriteLine("failed (not found)");
+            lyricsReloaded.getLogger().error("Lyrics not found!");
+          }
+          else
+          {
+            Console.WriteLine("success\n\n" + lyrics);
+          }
+        }
+        catch (Exception e)
+        {
+          Console.WriteLine("failed (internal error)");
+          Console.WriteLine(e.ToString());
+        }
+      }
+
+      // Console.WriteLine("\nPress any key to exit...");
+      // Console.ReadKey();
+
+      return result;
     }
+  }
 }
