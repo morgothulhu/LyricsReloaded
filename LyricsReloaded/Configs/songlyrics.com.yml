@@ -6,7 +6,7 @@ variables:
         filters:
         - lowercase
         - [regex, '[^\sa-z0-9]', ""]
-        - [strip_nonascii, -]
+        - [strip_nonascii, "-"]
     title:
         type: title
         filters: artist

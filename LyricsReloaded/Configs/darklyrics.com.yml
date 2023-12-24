@@ -1,0 +1,27 @@
+name: Dark Lyrics
+
+variables:
+    artist:
+        type: artist
+        filters:
+        - strip_diacritics
+        - lowercase
+        - [regex, '[^\sa-z0-9]\s*', ""]
+        - [strip_nonascii, _]
+        - [regex, '[_]', ""]
+    album:
+        type: album
+        filters: artist
+    title:
+        type: title
+        filters:
+        - trim
+
+config:
+    url: "http://www.darklyrics.com/lyrics/{artist}/{album}.html"
+    pattern: "<h.>(<.*?>)*(\\d)+\\.\\s*({title})(<\\/.*?>)*(<br>)*\\s*(?<lyrics>([^<]|(<\\s*br[^>]*>)|(<(\\/)?i>))+)"
+
+post-filters:
+- strip_html
+- trim
+- utf8_encode

@@ -12,7 +12,7 @@ variables:
         - [regex, "'", ""]
         - [regex, '(?<=[a-z0-9%])[^\sa-z0-9%]+(?=[a-z0-9%]+)', "-"]
         - [regex, '((?<=\s)([^a-z0-9\s-])+(\s|\W)+)|((?<=\w)([^a-z0-9-])+(\s|\W)+)', " "]
-        - [strip_nonascii, -]
+        - [strip_nonascii, "-"]
         - [regex, '\s&(?=\s)', " and"]
     title:
         type: title
@@ -20,7 +20,7 @@ variables:
 
 config:
     url: "https://genius.com/{artist}-{title}-lyrics"
-    pattern: ['<div data-lyrics-container="true" class="Lyrics__Container-sc-1ynbvzw-6 YYrds">(?<lyrics>.*)<div class="Lyrics__Footer-sc-', 's']
+    pattern: ['<div data-lyrics-container="true"[^>]*>\s*(?<lyrics>.*?)</div']
 
 post-filters:
 - br2nl
@@ -28,6 +28,6 @@ post-filters:
 - utf8_encode
 - entity_decode
 - clean_spaces
-- [regex, '\[.{1,75}\]', ""]
+# - [regex, '\[.{1,75}\]', ""]
 - [regex, '\n{2,}',"\n\n", 's']
 - trim

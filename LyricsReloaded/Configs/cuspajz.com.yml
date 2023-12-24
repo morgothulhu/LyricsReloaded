@@ -6,7 +6,7 @@ variables:
         filters:
         - strip_diacritics
         - lowercase
-        - [strip_nonascii, -]
+        - [strip_nonascii, "-"]
     title:
         type: title
         filters: artist

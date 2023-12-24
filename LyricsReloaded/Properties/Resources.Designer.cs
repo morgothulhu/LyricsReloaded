@@ -19,7 +19,7 @@ namespace CubeIsland.LyricsReloaded.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -111,6 +111,36 @@ namespace CubeIsland.LyricsReloaded.Properties {
         public static string provider_cuspajz_com {
             get {
                 return ResourceManager.GetString("provider_cuspajz_com", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to name: Dark Lyrics
+        ///
+        ///variables:
+        ///    artist:
+        ///        type: artist
+        ///        filters:
+        ///        - strip_diacritics
+        ///        - lowercase
+        ///        - [regex, &apos;[^\sa-z0-9]\s*&apos;, &quot;&quot;]
+        ///        - [strip_nonascii, _]
+        ///        - [regex, &apos;[_]&apos;, &quot;&quot;]
+        ///    album:
+        ///        type: album
+        ///        filters: artist
+        ///    title:
+        ///        type: title
+        ///        filters:
+        ///        - trim
+        ///
+        ///config:
+        ///    url: &quot;http://www.darklyrics.com/lyrics/{artist}/{album}.html&quot;
+        ///    pattern: &quot;&lt;h.&gt;(&lt;.*?&gt;)*(\\d)+\\.\\s*({title})(&lt;\\/.*?&gt;)*(&lt;br&gt;)*\\s*(? [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string provider_darklyrics_com {
+            get {
+                return ResourceManager.GetString("provider_darklyrics_com", resourceCulture);
             }
         }
         
@@ -306,8 +336,7 @@ namespace CubeIsland.LyricsReloaded.Properties {
         ///- strip_html
         ///- strip_links
         ///- entity_decode
-        ///- clean_spaces
-        ///- utf8_enco [rest of string was truncated]&quot;;.
+        ///-  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string provider_oldielyrics_com {
             get {
@@ -365,7 +394,7 @@ namespace CubeIsland.LyricsReloaded.Properties {
         ///- clean_spaces
         ///- utf8_encode
         ///- [fix_broken_chars, &apos;Ã&apos;, ISO-8859-1]
-        ///- [replace, &apos;þ&apos;, &apos;ß&apos;].
+        ///- [replace [rest of string was truncated]&quot;;.
         /// </summary>
         public static string provider_songlyrics_com {
             get {

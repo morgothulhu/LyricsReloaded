@@ -124,6 +124,9 @@
   <data name="provider_cuspajz_com" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\configs\cuspajz.com.yml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="provider_darklyrics_com" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\configs\darklyrics.com.yml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="provider_genius_com" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Configs\genius.com.yml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
