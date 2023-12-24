@@ -99,6 +99,15 @@ namespace LyricsTester
                     artist = artist.Trim();
                 }
             }
+      if (String.IsNullOrWhiteSpace(album))
+      {
+        Console.Write("Enter the album: ");
+        album = Console.ReadLine();
+        if (album != null)
+        {
+          album = album.Trim();
+        }
+      }
             if (String.IsNullOrWhiteSpace(title))
             {
                 Console.Write("Enter the title: ");

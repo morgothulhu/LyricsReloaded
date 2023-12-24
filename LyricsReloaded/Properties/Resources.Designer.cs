@@ -115,6 +115,36 @@ namespace CubeIsland.LyricsReloaded.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to name: Dark Lyrics
+        ///
+        ///variables:
+        ///    artist:
+        ///        type: artist
+        ///        filters:
+        ///        - strip_diacritics
+        ///        - lowercase
+        ///        - [regex, &apos;[^\sa-z0-9]\s*&apos;, &quot;&quot;]
+        ///        - [strip_nonascii, _]
+        ///        - [regex, &apos;[_]&apos;, &quot;&quot;]
+        ///    album:
+        ///        type: album
+        ///        filters: artist
+        ///    title:
+        ///        type: title
+        ///        filters:
+        ///        - trim
+        ///
+        ///config:
+        ///    url: &quot;http://www.darklyrics.com/lyrics/{artist}/{album}.html&quot;
+        ///    pattern: &quot;&lt;h.&gt;(&lt;.*?&gt;)*(\\d)+\\.\\s*({title})(&lt;\\/.*?&gt;)*(&lt;br&gt;)*\\s*(? [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string provider_darklyrics_com {
+            get {
+                return ResourceManager.GetString("provider_darklyrics_com", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to name: Genius
         ///
         ///variables:

@@ -2,7 +2,7 @@ Lrc123.com                              requires search
 LYRDB                                   uses an API
 chartLyrics.com                         uses an API
 AZ Lyrics                               working
-Dark Lyrics                             required title for search
+Dark Lyrics                             working
 Lyrics Time                             broken
 SongMeanings.net                        required search
 LoloLyrics                              required search
