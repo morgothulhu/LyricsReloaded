@@ -18,10 +18,10 @@
 
 */
 
-using System;
-using System.Text;
 using CubeIsland.LyricsReloaded;
 using CubeIsland.LyricsReloaded.Provider;
+using System;
+using System.Text;
 
 namespace LyricsTester
 {

@@ -19,19 +19,18 @@
 */
 
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 using System.Resources;
+using System.Runtime.InteropServices;
 
 // Allgemeine Informationen über eine Assembly werden über die folgenden 
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die mit einer Assembly verknüpft sind.
-[assembly: AssemblyTitle("LyricsReloaded")]
-[assembly: AssemblyDescription("Enhanced Lyric Fetching for MusicBee")]
+[assembly: AssemblyTitle("LyricsReloaded🤘")]
+[assembly: AssemblyDescription("Enhanced Lyrics Retrieval for MusicBee (metal edition)")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Authored by Cube Island, Maintained by Frank")]
-[assembly: AssemblyProduct("LyricsReloaded")]
-[assembly: AssemblyCopyright("Copyright ©  2013-2022")]
+[assembly: AssemblyProduct("LyricsReloaded🤘")]
+[assembly: AssemblyCopyright("Copyright ©  2013-2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
